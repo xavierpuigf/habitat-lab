@@ -119,7 +119,6 @@ class MultiAgentAccessMgr(AgentAccessMgr):
             updater_cls = MultiUpdater
             storage_cls = MultiStorage
 
-        # TODO(xavi to andrew): why do we call these functions? It seems they
         # just create an empty class
 
         multi_policy = policy_cls.from_config(

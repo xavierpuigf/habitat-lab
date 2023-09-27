@@ -1,76 +1,23 @@
-[![CircleCI](https://circleci.com/gh/facebookresearch/habitat-lab.svg?style=shield)](https://circleci.com/gh/facebookresearch/habitat-lab)
-[![codecov](https://codecov.io/gh/facebookresearch/habitat-lab/branch/main/graph/badge.svg)](https://codecov.io/gh/facebookresearch/habitat-lab)
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebookresearch/habitat-lab/blob/main/LICENSE)
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/facebookresearch/habitat-lab)](https://github.com/facebookresearch/habitat-lab/releases/latest)
-[![Supports Habitat_Sim](https://img.shields.io/static/v1?label=supports&message=Habitat%20Sim&color=informational&link=https://github.com/facebookresearch/habitat-sim)](https://github.com/facebookresearch/habitat-sim)
-[![Python 3.9](https://img.shields.io/badge/python-3.9-blue.svg)](https://www.python.org/downloads/release/python-390/)
-[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-[![Imports: isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336)](https://timothycrosley.github.io/isort/)
-[![Twitter Follow](https://img.shields.io/twitter/follow/ai_habitat?style=social)](https://twitter.com/ai_habitat)
-
-Habitat-Lab
-==============================
-
-Habitat-Lab is a modular high-level library for end-to-end development in embodied AI --
-defining embodied AI tasks (e.g. navigation, rearrangement, instruction following, question answering), configuring embodied agents (physical form, sensors, capabilities), training these agents (via imitation or reinforcement learning, or no learning at all as in SensePlanAct pipelines), and benchmarking their performance on the defined tasks using standard metrics.
-
-Habitat-Lab uses [`Habitat-Sim`](https://github.com/facebookresearch/habitat-sim) as the core simulator. For documentation refer [here](https://aihabitat.org/docs/habitat-lab/).
-
-[![Habitat Demo](https://img.shields.io/static/v1?label=WebGL&message=Try%20AI%20Habitat%20In%20Your%20Browser%20&color=blue&logo=webgl&labelColor=%23990000&style=for-the-badge&link=https://aihabitat.org/demo)](https://aihabitat.org/demo)
-<p align="center">
-  <img src="res/img/habitat_compressed.gif"  height="400">
-</p>
-
----
-
-## Table of contents
-   1. [Citing Habitat](#citing-habitat)
-   1. [Installation](#installation)
-   1. [Testing](#testing)
-   1. [Documentation](#documentation)
-   1. [Docker Setup](#docker-setup)
-   1. [Datasets](#datasets)
-   1. [Baselines](#baselines)
-   1. [License](#license)
+# Code to reproduce Habitat 3.0 Submission
 
 
-## Citing Habitat
-If you use the Habitat platform in your research, please cite the [Habitat 1.0](https://arxiv.org/abs/1904.01201) and [Habitat 2.0](https://arxiv.org/abs/2106.14405) papers:
-
-```
-@inproceedings{szot2021habitat,
-  title     =     {Habitat 2.0: Training Home Assistants to Rearrange their Habitat},
-  author    =     {Andrew Szot and Alex Clegg and Eric Undersander and Erik Wijmans and Yili Zhao and John Turner and Noah Maestre and Mustafa Mukadam and Devendra Chaplot and Oleksandr Maksymets and Aaron Gokaslan and Vladimir Vondrus and Sameer Dharur and Franziska Meier and Wojciech Galuba and Angel Chang and Zsolt Kira and Vladlen Koltun and Jitendra Malik and Manolis Savva and Dhruv Batra},
-  booktitle =     {Advances in Neural Information Processing Systems (NeurIPS)},
-  year      =     {2021}
-}
-
-@inproceedings{habitat19iccv,
-  title     =     {Habitat: {A} {P}latform for {E}mbodied {AI} {R}esearch},
-  author    =     {Manolis Savva and Abhishek Kadian and Oleksandr Maksymets and Yili Zhao and Erik Wijmans and Bhavana Jain and Julian Straub and Jia Liu and Vladlen Koltun and Jitendra Malik and Devi Parikh and Dhruv Batra},
-  booktitle =     {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
-  year      =     {2019}
-}
-```
-
-## Installation
+## Setup
 
 1. **Preparing conda env**
 
    Assuming you have [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/) installed, let's prepare a conda env:
    ```bash
    # We require python>=3.9 and cmake>=3.14
-   conda create -n habitat python=3.9 cmake=3.14.0
-   conda activate habitat
+   conda create -n habitat_30_submission python=3.9 cmake=3.14.0
+   conda activate habitat_30_submission
    ```
 
 1. **conda install habitat-sim**
    - To install habitat-sim with bullet physics
       ```
-      conda install habitat-sim withbullet -c conda-forge -c aihabitat
+      conda install habitat-sim withbullet headless -c conda-forge -c aihabitat-nightly
       ```
-      See Habitat-Sim's [installation instructions](https://github.com/facebookresearch/habitat-sim#installation) for more details.
+      
 
 1. **pip install habitat-lab stable version**.
 
@@ -86,6 +33,8 @@ If you use the Habitat platform in your research, please cite the [Habitat 1.0](
       ```bash
       pip install -e habitat-baselines  # install habitat_baselines
       ```
+
+1. **Download necessary data**.
 
 ## Testing
 
