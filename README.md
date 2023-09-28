@@ -57,20 +57,16 @@ data/robots/hab_spot_arm
 ## Training
 Here is the code to train the different social rearrangement baselines:
 
-## Learn-Single
 ```
+## Learn-Single
 python habitat-baselines/habitat_baselines/run.py \
 -m --config-name experiments_hab3/pop_play_kinematic_oracle_humanoid_spot_fp.yaml \
 habitat_baselines.evaluate=False \
 habitat_baselines.eval.should_load_ckpt=False \
 habitat_baselines.rl.agent.num_pool_agents_per_type=[1,1]
-```
-
 
 ## Plan-pop
 # plan id can be 1 to 4
-
-```
 export plan_id=1 
 export plan_id_agent=$((-(5 - plan_id)))
 python habitat-baselines/habitat_baselines/run.py \
@@ -79,10 +75,8 @@ habitat_baselines.evaluate=False \
 habitat_baselines.eval.should_load_ckpt=False \
 habitat_baselines/rl/policy@habitat_baselines.rl.policy.agent_1=hab3_planner \
 habitat_baselines.rl.policy.agent_1.hierarchical_policy.high_level_policy.plan_idx="${plan_id_agent}" 
-```
 
 ## Learn-pop
-```
 python habitat-baselines/habitat_baselines/run.py \
 -m --config-name experiments_hab3/pop_play_kinematic_oracle_humanoid_spot_fp.yaml \
 habitat_baselines.evaluate=False \
