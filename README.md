@@ -57,7 +57,8 @@ Below is the code to run the different baselines. For each baselines, we generat
 ## Run baselines in Train-Pop
 
 ```
-export base_dir="PUT HERE THE DIR OF YOUR CHECKPOINTS"
+# PUT HERE THE DIR OF YOUR CHECKPOINTS
+export base_dir="../checkpoints_submission/" 
 ```
 
 
