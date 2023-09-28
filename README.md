@@ -16,7 +16,8 @@ Note that the full set of experiments in the paper are done in the HSSD scenes. 
    ```
 
 1. **conda install habitat-sim**
-   - To install habitat-sim with bullet physics
+   
+   To install habitat-sim with bullet physics
       ```
       conda install habitat-sim withbullet headless -c conda-forge -c aihabitat-nightly
       ```
@@ -37,13 +38,13 @@ Note that the full set of experiments in the paper are done in the HSSD scenes. 
       ```
 
 1. **Download necessary data**.
-```
-python -m habitat_sim.utils.datasets_download --uids rearrange_dataset_v1 --data-path data/
-python -m habitat_sim.utils.datasets_download --uids replica_cad_dataset --data-path data/
-python -m habitat_sim.utils.datasets_download --uids ycb --data-path data/
-python -m habitat_sim.utils.datasets_download --uids hab_spot_arm --data-path data/
+      ```
+      python -m habitat_sim.utils.datasets_download --uids rearrange_dataset_v1 --data-path data/
+      python -m habitat_sim.utils.datasets_download --uids replica_cad_dataset --data-path data/
+      python -m habitat_sim.utils.datasets_download --uids ycb --data-path data/
+      python -m habitat_sim.utils.datasets_download --uids hab_spot_arm --data-path data/
 
-```
+      ```
 
 
 You may need to run these scripts more than once. If you see an git-lfs related error, try installing git-lfs. In the end you should have the following folders in your habitat-lab/ folder:
