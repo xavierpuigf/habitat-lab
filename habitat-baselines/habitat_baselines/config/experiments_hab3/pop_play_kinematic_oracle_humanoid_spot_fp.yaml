@@ -24,6 +24,23 @@ hydra:
   job:
     name: 'pop_play_humanoid_spot_fp'
 
+
+habitat:
+  environment:
+    max_episode_steps: 1500
+  dataset:
+    data_path: data/datasets/replica_cad/rearrange/v1/{split}/tidy_house_10k_1k_2obj.json.gz
+  task:
+    actions:
+      agent_1_oracle_nav_with_backing_up_action:
+        lin_speed: 10.0
+        ang_speed: 10
+    measurements:
+      cooperate_subgoal_reward:
+        end_on_collide: False
+    task_spec: multi_agent_tidy_house_solved
+    pddl_domain_def: replica_cad
+
 habitat_baselines:
   verbose: False
   trainer_name: "ddppo"
@@ -36,7 +53,7 @@ habitat_baselines:
   eval_ckpt_path_dir: ${hydra:sweep.dir}/${hydra:sweep.subdir}/checkpoints
   checkpoint_folder: ${hydra:sweep.dir}/${hydra:sweep.subdir}/checkpoints
   log_file: ${hydra:sweep.dir}/${hydra:sweep.subdir}/train.log
-  num_environments: 32
+  num_environments: 1
   num_updates: -1
   total_num_steps: 1e8
   log_interval: 1
@@ -46,22 +63,15 @@ habitat_baselines:
   load_resume_state_config: False
   rollout_storage_name: "HrlRolloutStorage"
 
-  evaluate: False
-  # writer_type: 'wb'
-
-  # wb:
-  #   project_name: 'hab3'
-  #   entity: 'andrew-colab'
-  #   run_name: ${hydra:job.name}/${now:%Y-%m-%d}/${now:%H-%M-%S}/${hydra:job.num}
-
-
+  evaluate: True
+  
   eval:
-    should_load_ckpt: False
+    should_load_ckpt: True
     video_option: ["disk"]
 
   rl:
     agent:
-      num_pool_agents_per_type: [1, 8]
+      num_pool_agents_per_type: [1, 1]
       agent_sample_interval: 20
       force_partner_sample_idx: -1
     policy:

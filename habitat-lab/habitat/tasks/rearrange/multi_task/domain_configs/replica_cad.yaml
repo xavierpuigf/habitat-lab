@@ -139,6 +139,34 @@ actions:
         task.force_regenerate: True
         task.should_save_to_cache: False
 
+  - name: move_forward
+    parameters:
+      - name: robot
+        expr_type: robot_entity_type
+    precondition: null
+    postcondition: []
+
+  - name: move_backward
+    parameters:
+      - name: robot
+        expr_type: robot_entity_type
+    precondition: null
+    postcondition: []
+
+  - name: turn_left
+    parameters:
+      - name: robot
+        expr_type: robot_entity_type
+    precondition: null
+    postcondition: []
+
+  - name: turn_right
+    parameters:
+      - name: robot
+        expr_type: robot_entity_type
+    precondition: null
+    postcondition: []
+
   - name: nav_to_obj
     parameters:
       - name: obj
@@ -350,21 +378,21 @@ actions:
   # Receptacle name only based variants of the receptacle skills. This does not
   # require any information about knowing which objects the receptacle
   # contains.
-  - name: nav_to_receptacle_by_name
-    parameters:
-      - name: marker
-        expr_type: art_receptacle_entity_type
-      - name: robot
-        expr_type: robot_entity_type
-    precondition: null
-    postcondition:
-      - robot_at(marker, robot)
-    task_info:
-      task: NavToObjTask-v0
-      task_def: "nav_to_obj"
-      config_args:
-        task.force_regenerate: True
-        task.should_save_to_cache: False
+  # - name: nav_to_receptacle_by_name
+  #   parameters:
+  #     - name: marker
+  #       expr_type: art_receptacle_entity_type
+  #     - name: robot
+  #       expr_type: robot_entity_type
+  #   precondition: null
+  #   postcondition:
+  #     - robot_at(marker, robot)
+  #   task_info:
+  #     task: NavToObjTask-v0
+  #     task_def: "nav_to_obj"
+  #     config_args:
+  #       task.force_regenerate: True
+  #       task.should_save_to_cache: False
 
   - name: open_fridge_by_name
     parameters:
