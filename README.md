@@ -1,7 +1,7 @@
 # Code to reproduce Habitat 3.0 Submission
 
 This anonymous repository contains the code to reproduce experiments in Habitat 3.0. 
-Note that the full set of experiments in the paper are done in the HSSD scenes. To ease reproduction, we are providing example configs to run our trained policies in ReplicaCAD, a smaller dataset of indoor scenes. Upon acceptance, we will be releasing the full dataset.
+Note that the full set of experiments in the paper are done in the HSSD scenes. To ease reproduction, we are providing example configs to run our trained policies in ReplicaCAD, a smaller dataset of indoor scenes. Upon acceptance, we will be releasing the full dataset. 
 
 
 ## Setup
@@ -58,15 +58,19 @@ data/robots/hab_spot_arm
 Here is the code to train the different social rearrangement baselines:
 
 ## Learn-Single
+```
 python habitat-baselines/habitat_baselines/run.py \
 -m --config-name experiments_hab3/pop_play_kinematic_oracle_humanoid_spot_fp.yaml \
 habitat_baselines.evaluate=False \
 habitat_baselines.eval.should_load_ckpt=False \
 habitat_baselines.rl.agent.num_pool_agents_per_type=[1,1]
+```
 
 
 ## Plan-pop
 # plan id can be 1 to 4
+
+```
 export plan_id=1 
 export plan_id_agent=$((-(5 - plan_id)))
 python habitat-baselines/habitat_baselines/run.py \
@@ -75,14 +79,16 @@ habitat_baselines.evaluate=False \
 habitat_baselines.eval.should_load_ckpt=False \
 habitat_baselines/rl/policy@habitat_baselines.rl.policy.agent_1=hab3_planner \
 habitat_baselines.rl.policy.agent_1.hierarchical_policy.high_level_policy.plan_idx="${plan_id_agent}" 
+```
 
 ## Learn-pop
+```
 python habitat-baselines/habitat_baselines/run.py \
 -m --config-name experiments_hab3/pop_play_kinematic_oracle_humanoid_spot_fp.yaml \
 habitat_baselines.evaluate=False \
 habitat_baselines.eval.should_load_ckpt=False \
 habitat_baselines.rl.agent.num_pool_agents_per_type=[1,8]
-
+```
 
 ## Evaluation
 
@@ -122,3 +128,5 @@ habitat_baselines.eval_ckpt_path_dir="${base_dir}/learn_pop.pth" \
 habitat_baselines.test_episode_count=5 \
 habitat_baselines.video_dir="video_learn_pop"
 ```
+
+To download this repository, you can use a resource like [this](https://github.com/fedebotu/clone-anonymous-github). 
