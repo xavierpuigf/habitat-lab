@@ -23,8 +23,6 @@ habitat_baselines.eval.should_load_ckpt=False \
 ```
 
 
-
-```
 To use **trained**-policy-controlled agent(s) instead of random-policy-controlled:
 
 Run two above commands with the following `--cfg-opts`:
