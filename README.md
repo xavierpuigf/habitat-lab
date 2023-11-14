@@ -1,4 +1,4 @@
-# Code to reproduce Habitat 3.0 Submission
+# Code to reproduce Habitat 3.0 Submission (Rebuttal)
 
 This anonymous repository contains the code to reproduce experiments in Habitat 3.0. 
 Note that the full set of experiments in the paper are done in the HSSD scenes. To ease reproduction, we are providing example configs to run our trained policies in ReplicaCAD, a smaller dataset of indoor scenes. Upon acceptance, we will be releasing the full dataset. 
