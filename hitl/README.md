@@ -7,7 +7,7 @@ This is a 3D interactive GUI app for evaluating Habitat 3.0 rearrangemnt along w
 # Example commands
 ### GUI-controlled humanoid and learned-policy-controlled Spot
 
-* To launch GUI-controlled humanoid and random-policy-controlled (initialized with random weights) Spot, in HSSD run:
+* To launch GUI-controlled humanoid and random-policy-controlled (initialized with random weights) Spot, in replica run:
 ```
 HABITAT_SIM_LOG=warning MAGNUM_LOG=warning \
 python hitl/sandbox_app.py \
@@ -23,6 +23,8 @@ habitat_baselines.eval.should_load_ckpt=False \
 ```
 
 
+
+```
 To use **trained**-policy-controlled agent(s) instead of random-policy-controlled:
 
 Run two above commands with the following `--cfg-opts`:

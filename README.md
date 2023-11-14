@@ -125,7 +125,18 @@ habitat_baselines.video_dir="video_learn_pop"
 ```
 
 ## HITL
-For instructions on how to run the Human-In-The-Loop (HITL) tool, please checkout the folder: `hitl/`.
+For instructions on how to run the Human-In-The-Loop (HITL) tool, please checkout the folder: [hitl/](hitl/).
 
 To download this repository, you can use a resource like [this](https://github.com/fedebotu/clone-anonymous-github). 
 
+
+## Converting motions to SMPL-X
+
+You can convert motions from the SMPL-X format to a format runnable by habitat using [this script](habitat-lab/habitat/utils/convert_smplx_to_habitat.py)). You will need to provide a folder with npz files, containing poses in a npz file, in the format:
+
+```
+# trans: N x 3, specifying the root translation on each of the N poses
+# poses: N x (J*3 + 1) * 3: containing the root rotation, as well as the rotation for each of the 21 joints 
+```
+
+You will also need the model.npz from SMPL-X, which can be downloaded [here](https://smpl-x.is.tue.mpg.de/index.html).
