@@ -101,7 +101,7 @@ python habitat-baselines/habitat_baselines/run.py \
 -m --config-name experiments_hab3/pop_play_kinematic_oracle_humanoid_spot_fp.yaml \
 habitat_baselines.eval_ckpt_path_dir="${base_dir}/learn_single.pth" \
 habitat_baselines.test_episode_count=5 \
-habitat_baselines.video_dir="video_learn_single"
+habitat_baselines.video_dir="video_learn_single_hbao"
 
 ## Plan-Pop
 # plan id can be 1 to 4
@@ -124,4 +124,8 @@ habitat_baselines.test_episode_count=5 \
 habitat_baselines.video_dir="video_learn_pop"
 ```
 
+## HITL
+For instructions on how to run the Human-In-The-Loop (HITL) tool, please checkout the folder: `hitl/`.
+
 To download this repository, you can use a resource like [this](https://github.com/fedebotu/clone-anonymous-github). 
+
