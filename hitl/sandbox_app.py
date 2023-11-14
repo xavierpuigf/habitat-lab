@@ -294,7 +294,7 @@ class SandboxDriver(GuiAppDriver):
 
         # recompute the largest indoor island id whenever the sim backend may have changed
         self._largest_island_idx = get_largest_island_index(
-            sim.sim.pathfinder, sim.sim, allow_outdoor=False
+            sim.pathfinder, sim, allow_outdoor=False
         )
 
         temp_ids, goal_positions_np = sim.get_targets()
@@ -326,12 +326,13 @@ class SandboxDriver(GuiAppDriver):
             self._reset_episode_recorder()
 
     def _check_save_episode_data(self, session_ended):
-        assert self._save_filepath_base
         saved_keyframes, saved_episode_data = False, False
         if self._save_gfx_replay_keyframes and session_ended:
+            assert self._save_filepath_base
             self._save_recorded_keyframes_to_file()
             saved_keyframes = True
         if self._save_episode_record:
+            assert self._save_filepath_base
             self._save_episode_recorder_dict()
             saved_episode_data = True
 
@@ -1103,7 +1104,7 @@ class SandboxDriver(GuiAppDriver):
 
         # Manually save recorded gfx-replay keyframes.
         if (
-            self._gui_input.get_key_down(GuiInput.KeyNS.EQUAL)
+            self.gui_input.get_key_down(GuiInput.KeyNS.EQUAL)
             and self._save_gfx_replay_keyframes
         ):
             self._save_recorded_keyframes_to_file()
