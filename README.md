@@ -125,7 +125,7 @@ habitat_baselines.video_dir="video_learn_pop"
 ```
 
 ## HITL
-For instructions on how to run the Human-In-The-Loop (HITL) tool, please checkout the folder: [hitl/](hitl/).
+For instructions on how to run the Human-In-The-Loop (HITL) tool, please checkout the folder: [hitl/](hitl/README.md).
 
 To download this repository, you can use a resource like [this](https://github.com/fedebotu/clone-anonymous-github). 
 
